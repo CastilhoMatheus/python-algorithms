@@ -1,5 +1,5 @@
 import pytest
-from src.tree_traversals import TreeNode
+from src.TreeNode import TreeNode
 
 @pytest.fixture
 def sample_tree():
@@ -22,3 +22,8 @@ def binary_tree():
     #    1   3 5   7
 
     return TreeNode(4, TreeNode(2, TreeNode(1), TreeNode(3)), TreeNode(6, TreeNode(5), TreeNode(7)))
+
+@pytest.fixture
+def root_only():
+
+    return TreeNode(1)

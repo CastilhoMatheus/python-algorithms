@@ -1,10 +1,5 @@
 from typing import List
-
-class TreeNode:
-    def __init__(self, val, left=None, right=None):
-        self.val = val
-        self.left = left
-        self.right = right
+from src import TreeNode
         
 def preOrderTraverseRecursive(root: TreeNode) -> List[int]:
     result = []
