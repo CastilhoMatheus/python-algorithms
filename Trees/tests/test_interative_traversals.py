@@ -1,4 +1,4 @@
-from src.tree_traversals import preOrderTraverseIterative, inOrderTraverseIterative, postOrderTraverseIterative
+from src.tree_traversals import preOrderTraverseIterative, inOrderTraverseIterative, postOrderTraverseIterative, postOrderTraverseIterativeOneStack
 
 def test_pre_order_traverse_iterative(sample_tree):
     assert preOrderTraverseIterative(sample_tree) == [1, 4, 6, 7, 9, 5, 8]
@@ -9,3 +9,5 @@ def test_in_order_traverse_iterative(sample_tree):
 def test_post_order_traverse_iterative(sample_tree):
     assert postOrderTraverseIterative(sample_tree) == [6, 9, 7, 4, 8, 5, 1]
 
+def test_post_order_traverse_iterative_one_stack(sample_tree):
+    assert postOrderTraverseIterativeOneStack(sample_tree) == [6, 9, 7, 4, 8, 5, 1]

@@ -127,3 +127,32 @@ def postOrderTraverseIterative(root: TreeNode) -> List[int]:
         
     return result
 
+
+def postOrderTraverseIterativeOneStack(root: TreeNode) -> List[int]:
+    if not root:
+        return []
+
+    result = []
+    stack = []
+    visiteds = set()
+    cur = root
+
+    while cur or stack:
+
+        while cur and cur not in visiteds:
+            stack.append(cur)
+            visiteds.add(cur)
+            cur = cur.left
+        
+        cur = stack[-1]
+
+        if cur.right and cur.right not in visiteds:
+            cur = cur.right
+
+        else:
+            result.append(stack.pop().val)
+            cur = None
+
+        
+        
+    return result
