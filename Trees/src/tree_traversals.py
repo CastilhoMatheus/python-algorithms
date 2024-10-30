@@ -49,26 +49,16 @@ def preOrderTraverseIterative(root: TreeNode) -> List[int]:
 
     result = []
     stack = [root]
-    stack2 = [root.val]
 
     while stack:
-        cur = stack[-1]
+        cur = stack.pop()
+        result.append(cur.val)
         
-        while cur:
-            result.append(cur.val)
+        if cur.right:
+            stack.append(cur.right)
 
-            if not cur.left:
-                break
+        if cur.left:
             stack.append(cur.left)
-            stack2.append(cur.left.val)
-            cur = cur.left        
-
-        while stack:
-            cur = stack.pop()
-            if cur.right:
-                stack.append(cur.right)
-                stack2.append(cur.right.val)
-                break
     
     return result
 
@@ -77,24 +67,19 @@ def inOrderTraverseIterative(root: TreeNode) -> List[int]:
         return []
 
     result = []
-    stack = [root]
-
-    while stack:
-        cur = stack[-1]
+    stack = []
+    cur = root
+    while cur or stack:
         
         while cur:
-
-            if not cur.left:
-                break
-            stack.append(cur.left)
+            stack.append(cur)
             cur = cur.left        
 
-        while stack:
-            cur = stack.pop()
-            result.append(cur.val)
-            if cur.right:
-                stack.append(cur.right)
-                break
+        cur = stack.pop()
+        result.append(cur.val)
+
+        cur = cur.right
+
     
     return result
 
